@@ -167,3 +167,40 @@ SELECT Name FROM city WHERE Name LIKE  'Be%';
 
 --
 SELECT Name, Population FROM city WHERE Population BETWEEN 500000 AND 1000000;
+--
+SELECT Name FROM city ORDER BY Name ASC;
+--
+SELECT Name, Population FROM city ORDER BY Population ASC LIMIT 1;
+--
+SELECT country.Name, countrylanguage.Language 
+FROM country 
+JOIN countrylanguage ON country.Code = countrylanguage.CountryCode 
+WHERE Region = 'Caribbean';
+--
+SELECT country.Name, country.Capital, city.District 
+FROM country 
+JOIN city ON country.Capital = city.ID 
+WHERE country.Name = 'Spain';
+--
+SELECT Name, LifeExpectancy FROM country ORDER BY LifeExpectancy DESC LIMIT 1;
+--
+SELECT city.Name, country.Continent 
+FROM city 
+JOIN country ON city.CountryCode = country.Code 
+WHERE country.Continent = 'Europe';
+--
+UPDATE country SET HeadOfState = 'Joe Bidden' WHERE Code = 'USA';
+--
+SELECT LifeExpectancy, GNP, GNPOld,LocalName,GovernmentForm,HeadOfState,Capital,Code2 
+FROM country WHERE Code = 'USA';
+--
+SELECT Name, Population FROM city ORDER BY Population DESC LIMIT 1;
+--
+SELECT Name, Population FROM city ORDER BY Population ASC LIMIT 1;
+--
+SELECT COUNT(*) FROM city;
+--
+SELECT COUNT(*) 
+FROM city 
+JOIN country ON city.CountryCode = country.Code 
+WHERE country.Name = 'Ukraine';
